@@ -27,12 +27,11 @@ window.Controls = (function() {
             .on('keydown', this._onKeyDown.bind(this))
             .on('keyup', this._onKeyUp.bind(this));
         $('.GameCanvas')
-            .on('mouseclick', this._onMouseClick.bind(this));
+            .on('click', this._onMouseClick.bind(this));
     };
 
-     Controls.prototype._onMouseClick = function(e) {
-        console.log('Musarsmellur!');
-        if (e.button === 0) {
+    Controls.prototype._onMouseClick = function(e) {
+        if (e.button == 0) {
             this._didJump = true;
         }
     };
