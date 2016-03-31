@@ -6,6 +6,7 @@ window.Controls = (function() {
      * Key codes we're interested in.
      */
     var KEYS = {
+        0: 'mouse',
         32: 'space',
         37: 'left',
         38: 'up',
@@ -25,6 +26,15 @@ window.Controls = (function() {
         $(window)
             .on('keydown', this._onKeyDown.bind(this))
             .on('keyup', this._onKeyUp.bind(this));
+        $('.GameCanvas')
+            .on('mouseclick', this._onMouseClick.bind(this));
+    };
+
+     Controls.prototype._onMouseClick = function(e) {
+        console.log('Musarsmellur!');
+        if (e.button === 0) {
+            this._didJump = true;
+        }
     };
 
     Controls.prototype._onKeyDown = function(e) {
