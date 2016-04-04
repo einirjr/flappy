@@ -7,6 +7,28 @@
 	background: blue;
 }
 
+.Player-wings {
+    position: absolute;
+    left: 1em;
+    top: 1em;
+    height: 2em;
+    width: 3em;
+
+    background: yellow;
+    transform-origin: top left;
+    animation: 0.4s flap alternate infinite;
+
+}
+
+@keyframes flap {
+    from {
+        transform: rotateX(0);
+    }
+    to {
+        transform: rotateX(180deg);
+    }
+}
+
 .Scoreboard {
 	position: absolute;
 	left: 50%;

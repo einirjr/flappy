@@ -8,10 +8,6 @@ window.Controls = (function() {
     var KEYS = {
         0: 'mouse',
         32: 'space',
-        37: 'left',
-        38: 'up',
-        39: 'right',
-        40: 'down'
     };
 
     /**
