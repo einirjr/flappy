@@ -27,22 +27,15 @@ window.Player = (function() {
 	};
 
 	Player.prototype.onFrame = function(delta) {
-		this.pos.y += GRAVITY;
+		
+		if (this.hasStarted) {
+			this.pos.y += GRAVITY;
+		}
+		
 		var jumped = Controls.didJump();
 		if(jumped) {
-			this.pos.y -= 8 ;
-		}
-		if (Controls.keys.right) {
-			this.pos.x += delta * SPEED;
-		}
-		if (Controls.keys.left) {
-			this.pos.x -= delta * SPEED;
-		}
-		if (Controls.keys.down) {
-			this.pos.y += delta * SPEED;
-		}
-		if (Controls.keys.up) {
-			this.pos.y -= delta * SPEED;
+			this.pos.y -= 8;
+			this.hasStarted = true;
 		}
 
 		this.checkCollisionWithBounds();
