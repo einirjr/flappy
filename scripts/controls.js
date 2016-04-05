@@ -31,7 +31,7 @@ window.Controls = (function() {
     };
 
     Controls.prototype._onMouseClick = function(e) {
-        if (e.button == 0) {
+        if (e.button === 0) {
             this._didJump = true;
         }
     };

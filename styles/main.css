@@ -4,20 +4,25 @@
 	left: 0;
 	width: 5em;
 	height: 5em;
+    border-radius: 0.3em 2em 2em 1.5em;
+    border-style: outset;
+    border-width: 0.1em;
 	background: blue;
 }
 
 .Player-wings {
-    position: absolute;
-    left: 1em;
-    top: 1em;
-    height: 2em;
-    width: 3em;
+	position: absolute;
+    top: 2em;
+    left: 0.5em;
+    width: 2.5em;
+    height: 1.2em;
+    border-radius: 0.3em 0.3em 0.7em 0.7em;
+    border-style: outset;
+    border-width: 0.1em;
 
     background: yellow;
     transform-origin: top left;
     animation: 0.4s flap alternate infinite;
-
 }
 
 @keyframes flap {
@@ -27,6 +32,42 @@
     to {
         transform: rotateX(180deg);
     }
+}
+
+.Player-eyes {
+    position: absolute;
+    top: 1em;
+    left: 4em;
+    width: 1.4em;
+    height: 1.4em;
+    border-radius: 0.8em;
+    border-style: outset;
+    border-width: 0.1em;
+
+    background: white;
+}
+
+.Player-eye-pupils {
+    position: absolute;
+    top: 0.5em;
+    left: 0.6em;
+    width: 0.7em;
+    height: 0.7em;
+    border-radius: 0.5em;
+
+    background: black;
+}
+
+.Player-beak {
+    position: absolute;
+    top: 2.5em;
+    left: 4.8em;
+
+    border-color: yellow;
+	border-top: 0.5em solid transparent;
+	border-bottom: 1em solid transparent; 
+	
+	border-left:1em solid yellow; 
 }
 
 .Scoreboard {
