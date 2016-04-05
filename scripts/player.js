@@ -5,17 +5,18 @@ window.Player = (function() {
 
 	// All these constants are in em's, multiply by 10 pixels
 	// for 1024x576px canvas.
-	var SPEED = 5; // * 10 pixels per second
+	//var SPEED = 5; // * 10 pixels per second
 	var WIDTH = 5;
 	var HEIGHT = 5;
 	var INITIAL_POSITION_X = 30;
 	var INITIAL_POSITION_Y = 25;
-	var GRAVITY = 0.2  ;
+	var GRAVITY = 0.2;
 
 	var Player = function(el, game) {
 		this.el = el;
 		this.game = game;
 		this.pos = { x: 0, y: 0 };
+		this.rotation = 0;
 	};
 
 	/**
@@ -27,17 +28,22 @@ window.Player = (function() {
 	};
 
 	Player.prototype.onFrame = function(delta) {
+		this.rotation = -2000 * delta;
+		console.log(this.rotation);
 		this.pos.y += GRAVITY;
 		var jumped = Controls.didJump();
 		if(jumped) {
 			this.pos.y -= 8 ;
+			this.el.css('transform', 'translateZ(0) translate(' + this.pos.x + 'em, ' + this.pos.y + 'em) rotate(' + this.rotation + 'deg)');
+			return;
 		}
-
+		
 		this.checkCollisionWithBounds();
 
 		// Update UI
-		this.el.css('transform', 'translateZ(0) translate(' + this.pos.x + 'em, ' + this.pos.y + 'em)');
+		this.el.css('transform', 'translateZ(0) translate(' + this.pos.x + 'em, ' + this.pos.y + 'em) rotate(' + delta + 'deg)');
 	};
+
 
 	Player.prototype.checkCollisionWithBounds = function() {
 		if (this.pos.x < 0 ||
