@@ -8,6 +8,10 @@ window.Controls = (function() {
     var KEYS = {
         0: 'mouse',
         32: 'space',
+        37: 'left',
+        38: 'up',
+        39: 'right',
+        40: 'down'
     };
 
     /**
@@ -27,10 +31,8 @@ window.Controls = (function() {
     };
 
     Controls.prototype._onMouseClick = function(e) {
-        if (e.button === 0) {
+        if (e.button == 0) {
             this._didJump = true;
-            this.game.started = true;
-            this.player.hasStarted = true;
         }
     };
 

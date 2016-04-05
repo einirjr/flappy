@@ -27,10 +27,7 @@ window.Player = (function() {
 	};
 
 	Player.prototype.onFrame = function(delta) {
-		
 		this.pos.y += GRAVITY;
-
-		
 		var jumped = Controls.didJump();
 		if(jumped) {
 			this.pos.y -= 8 ;
