@@ -29,7 +29,6 @@ window.Player = (function() {
 
 	Player.prototype.onFrame = function(delta) {
 		this.rotation = -2000 * delta;
-		console.log(this.rotation);
 		this.pos.y += GRAVITY;
 		var jumped = Controls.didJump();
 		if(jumped) {
@@ -46,9 +45,9 @@ window.Player = (function() {
 
 
 	Player.prototype.checkCollisionWithBounds = function() {
-		if (this.pos.x < 0 ||
-			this.pos.x + WIDTH > this.game.WORLD_WIDTH ||
-			this.pos.y < 0 ||
+		console.log(this.game.WORLD_HEIGHT);
+		if (this.pos.y < 0 ||
+			this.pos.y > this.game.WORLD_HEIGHT - 16.5 ||
 			this.pos.y + HEIGHT > this.game.WORLD_HEIGHT) {
 			return this.game.gameover();
 		}
