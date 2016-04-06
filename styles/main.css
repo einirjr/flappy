@@ -108,6 +108,25 @@
    100% { background-position: -275px 100%; }
 }
 
+.Cloud {
+	transform-origin: top left;
+    animation: cloud-move 10s infinite;
+    animation-timing-function: linear;
+    position: absolute;
+    top: 5em;
+    left: 50em;
+    width: 8em;
+    height: 6em;
+
+    border-radius: 2.5em;
+    background: white;
+}
+
+@keyframes cloud-move {
+    from {transform: translate(75em, 3em);}
+    to {transform: translate(-60em, 3em);}
+}
+
 .Scoreboard {
 	position: absolute;
 	left: 50%;
