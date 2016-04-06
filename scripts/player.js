@@ -17,6 +17,7 @@ window.Player = (function() {
 		this.game = game;
 		this.pos = { x: 0, y: 0 };
 		this.rotation = 0;
+		this.kvak = new Audio('/audio/crow.mp3');
 	};
 
 	/**
@@ -32,6 +33,7 @@ window.Player = (function() {
 		this.pos.y += GRAVITY;
 		var jumped = Controls.didJump();
 		if(jumped) {
+			this.kvak.play();
 			this.pos.y -= 8 ;
 			this.el.css('transform', 'translateZ(0) translate(' + this.pos.x + 'em, ' + this.pos.y + 'em) rotate(' + this.rotation + 'deg)');
 			return;
