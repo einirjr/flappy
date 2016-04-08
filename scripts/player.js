@@ -24,6 +24,7 @@ window.Player = (function() {
 	 * Resets the state of the player for a new game.
 	 */
 	Player.prototype.reset = function() {
+
 		this.pos.x = INITIAL_POSITION_X;
 		this.pos.y = INITIAL_POSITION_Y;
 		$('.Player-wings').css('animation-play-state', 'running');
@@ -43,9 +44,9 @@ window.Player = (function() {
 			//this.kvak.play();
 			return;
 		}
-		
+		//console.log(this.pos.y);
 		this.checkCollisionWithBounds();
-		//this.checkCollisionWithPipes();
+		this.checkCollisionWithPipes();
 
 		// Update UI
 		this.el.css('transform', 'translateZ(0) translate(' + this.pos.x + 'em, ' + this.pos.y + 'em) rotate(' + delta + 'deg)');
@@ -59,11 +60,19 @@ window.Player = (function() {
 			return this.game.gameover();
 		}
 	};
-/*
+
 	Player.prototype.checkCollisionWithPipes = function() {
-		if(this.pos.y < )
-	}
-*/
+		if(this.pos.x === this.game.pipe1.pos && this.pos.y < this.game.pipe1.topHeight) {
+			return this.game.gameover();
+		}
+		else if(this.pos.x === this.game.pipe2.pos && this.pos.y < this.game.pipe2.topHeight) {
+			return this.game.gameover();
+		}
+		else if(this.pos.x === this.game.pipe3.pos && this.pos.y < this.game.pipe3.topHeight) {
+			return this.game.gameover();
+		}
+	};
+
 	return Player;
 
 })();

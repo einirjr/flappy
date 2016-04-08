@@ -20,6 +20,7 @@ window.Pipes = (function() {
         this.pos = pos;
         this.initalPos = pos;
         this.type = type;
+        this.calculateGap();
     };
 
     /**
@@ -32,19 +33,7 @@ window.Pipes = (function() {
     Pipes.prototype.onFrame = function() {
         
         if(this.pos < RESET) {
-            if(this.type === types.pipe1) {
-                $('.Pipe1-high').css('height', Math.floor(Math.random() * (TOP_MAXHEIGHT - TOP_MINHEIGHT + 1)) + TOP_MINHEIGHT + 'em');
-                $('.Pipe1-low').css('height', Math.floor(Math.random() * (BOTTOM_MAXHEIGHT - BOTTOM_MINHEIGHT + 1)) + BOTTOM_MINHEIGHT + 'em');
-            }
-            else if(this.type === types.pipe2) {
-                $('.Pipe2-high').css('height', Math.floor(Math.random() * (TOP_MAXHEIGHT - TOP_MINHEIGHT + 1)) + TOP_MINHEIGHT + 'em');
-                $('.Pipe2-low').css('height', Math.floor(Math.random() * (BOTTOM_MAXHEIGHT - BOTTOM_MINHEIGHT + 1)) + BOTTOM_MINHEIGHT + 'em');
-            }
-            else if(this.type === types.pipe2) {
-                $('.Pipe3-high').css('height', Math.floor(Math.random() * (TOP_MAXHEIGHT - TOP_MINHEIGHT + 1)) + TOP_MINHEIGHT + 'em');
-                $('.Pipe3-low').css('height', Math.floor(Math.random() * (BOTTOM_MAXHEIGHT - BOTTOM_MINHEIGHT + 1)) + BOTTOM_MINHEIGHT + 'em');
-            }
-            
+            this.calculateGap();
             this.pos = STARTPOS;
         }
         else {
@@ -54,6 +43,24 @@ window.Pipes = (function() {
         // Update UI
         this.el.css('transform', 'translateZ(0) translate(' + this.pos + 'em', '0em)');
 
+    };
+
+    Pipes.prototype.calculateGap = function() {
+        this.topHeight = Math.floor(Math.random() * (TOP_MAXHEIGHT - TOP_MINHEIGHT + 1)) + TOP_MINHEIGHT;
+        this.bottomHeight = Math.floor(Math.random() * (BOTTOM_MAXHEIGHT - BOTTOM_MINHEIGHT + 1)) + BOTTOM_MINHEIGHT;
+
+        if(this.type === types.pipe1) {
+            $('.Pipe1-high').css('height', this.topHeight + 'em');
+            $('.Pipe1-low').css('top', this.bottomHeight + 'em');
+        }
+        else if(this.type === types.pipe2) {
+            $('.Pipe2-high').css('height', this.topHeight + 'em');
+            $('.Pipe2-low').css('top', this.bottomHeight + 'em');
+        }
+        else if(this.type === types.pipe2) {
+            $('.Pipe3-high').css('height', this.topHeight + 'em');
+            $('.Pipe3-low').css('top', this.bottomHeight + 'em');
+        }
     };
 
     return Pipes;
