@@ -99,7 +99,7 @@
    background-repeat: repeat-x;
    background-position: 0px 100%;
    background-color: #4ec0ca;
-   
+   transform: translateZ(0);
    animation: animSky 7s linear infinite;
 }
 
@@ -117,7 +117,7 @@
     left: 50em;
     width: 8em;
     height: 6em;
-
+    transform: translateZ(0);
     border-radius: 2.5em;
     background: white;
 }
@@ -127,72 +127,66 @@
     to {transform: translate(-60em, 3em);}
 }
 
-.Obstacle1-pipe1Up {
+.Pipe1-high {
     position: fixed;
     top: 0em;
     height: 16em;
     width: 10em;
 
-    border-radius: 0em 0em 10em 10em;
+
     border: solid white;
-    /*background-image: url("http://scrapbookingcafeonline.ca/zenimages/color%20pop%20turquoise.jpg");*/
-    /*background-image: url("http://www.zingerbug.com/Backgrounds/background_images/small_turquoise_bricks_seamless_pattern.gif");*/
+ 
+    /*background-image: url(");*/
 }
 
-.Obstacle1-pipe1Low {
+.Pipe1-Low {
     position: fixed;
     top: 34em;
     height: 30em;
     width: 10em;
 
-    border-radius: 10em 10em 0em 0em;
     border: solid white;
-    /*background-image: url("http://www.zingerbug.com/Backgrounds/background_images/small_turquoise_bricks_seamless_pattern.gif");*/
+    /*background-image: */
 }
 
-.Obstacle2-pipe2Up {
+.Pipe2-high {
     position: fixed;
     top: 0em;
     height: 26em;
     width: 10em;
 
-    border-radius: 0em 0em 10em 10em;
     border: solid white;
-    /*background-image: url("http://www.zingerbug.com/Backgrounds/background_images/small_turquoise_bricks_seamless_pattern.gif");*/
+    /*background-image: url("");*/
 }
 
-.Obstacle2-pipe2Low {
+.Pipe2-Low {
     position: fixed;
     top: 44em;
     height: 20em;
     width: 10em;
 
-    border-radius: 10em 10em 0em 0em;
     border: solid white;
-    /*background-image: url("http://www.zingerbug.com/Backgrounds/background_images/small_turquoise_bricks_seamless_pattern.gif");*/
+    /*background-image: url(");*/
 
 }
 
-.Obstacle3-pipe3Up {
+.Pipe3-high {
     position: fixed;
     top: 0em;
     height: 11em;
     width: 10em;
 
-    border-radius: 0em 0em 10em 10em;
     border: solid white;
-    /*background-image: url("http://www.zingerbug.com/Backgrounds/background_images/small_turquoise_bricks_seamless_pattern.gif");*/
+    /*background-image: url("");*/
 }
 
-.Obstacle3-pipe3Low {
+.Pipe3-Low {
     position: fixed;
     top: 29em;
     height: 35em;
     width: 10em;
-
-    border-radius: 10em 10em 0em 0em;
     border: solid white;
-    /*background-image: url("http://www.zingerbug.com/Backgrounds/background_images/small_turquoise_bricks_seamless_pattern.gif");*/
+
 
 }
 
