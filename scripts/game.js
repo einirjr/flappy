@@ -9,9 +9,15 @@ window.Game = (function() {
 	 */
 	var Game = function(el) {
 		this.el = el;
+		var xpipe = 100;
+
 		this.player = new window.Player(this.el.find('.Player'), this);
+		
+		this.pipe1 = new window.Pipes(this.el.find('.Obstacle1'), this, xpipe, 0);
+		this.pipe2 = new window.Pipes(this.el.find('.Obstacle2'), this, xpipe+35, 0);
+		this.pipe3 = new window.Pipes(this.el.find('.Obstacle3'), this, xpipe+70, 0);
+		
 		this.isPlaying = false;
-		this.hasStarted = false;
 		// Cache a bound onFrame since we need it each frame.
 		this.onFrame = this.onFrame.bind(this);
 	};
@@ -33,7 +39,11 @@ window.Game = (function() {
 
 		// Update game entities.
 		this.player.onFrame(delta);
-
+		
+		this.pipe1.onFrame();
+		this.pipe2.onFrame();
+		this.pipe3.onFrame();
+		
 		// Request next frame.
 		window.requestAnimationFrame(this.onFrame);
 	};
@@ -49,6 +59,18 @@ window.Game = (function() {
 		window.requestAnimationFrame(this.onFrame);
 		this.isPlaying = true;
 	};
+
+	Game.prototype.updatePipes = function() {
+		    $('.Pipe').filter(function() { return $(this).position().left <= -100; }).remove();
+		   
+		    //add a new pipe (top height + bottom height  + pipeheight == 420) and put it in our tracker
+		    var padding = 80;
+		    var constraint = 420 - this.pipeheight - (padding * 2); //double padding (for top and bottom)
+		    var topheight = Math.floor((Math.random()*constraint) + padding); //add lower padding
+		    var bottomheight = (420 - this.pipeheight) - topheight;
+		    var newpipe = $('<div class="pipe animated"><div class="pipe_upper" style="height: ' + topheight + 'px;"></div><div class="pipe_lower" style="height: ' + bottomheight + 'px;"></div></div>');
+		    $('.GameCanvas').append(newpipe);
+		};
 
 	/**
 	 * Resets the state of the game so a new game can be started.
