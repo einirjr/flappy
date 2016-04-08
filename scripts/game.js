@@ -2,6 +2,8 @@
 window.Game = (function() {
 	'use strict';
 
+	var pipeX = 100;
+	var pipeY = 0;
 	/**
 	 * Main game class.
 	 * @param {Element} el jQuery element containing the game.
@@ -9,13 +11,12 @@ window.Game = (function() {
 	 */
 	var Game = function(el) {
 		this.el = el;
-		var pipePos = 100;
 
 		this.player = new window.Player(this.el.find('.Player'), this);
 		
-		this.pipe1 = new window.Pipes(this.el.find('.Pipe1'), this, pipePos);
-		this.pipe2 = new window.Pipes(this.el.find('.Pipe2'), this, pipePos+35);
-		this.pipe3 = new window.Pipes(this.el.find('.Pipe3'), this, pipePos+70);
+		this.pipe1 = new window.Pipes(this.el.find('.Pipe1'), pipeX, pipeY );
+		this.pipe2 = new window.Pipes(this.el.find('.Pipe2'), pipeX + 35, pipeY);
+		this.pipe3 = new window.Pipes(this.el.find('.Pipe3'), pipeX + 70, pipeY);
 		
 		this.isPlaying = false;
 		// Cache a bound onFrame since we need it each frame.
@@ -65,6 +66,9 @@ window.Game = (function() {
 	 */
 	Game.prototype.reset = function() {
 		this.player.reset();
+		this.pipe1.reset();
+		this.pipe2.reset();
+		this.pipe3.reset();
 	};
 
 	/**
