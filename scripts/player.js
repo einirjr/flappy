@@ -47,11 +47,11 @@ window.Player = (function() {
 		//console.log(this.pos.y);
 		this.checkCollisionWithBounds();
 		this.checkCollisionWithPipes();
+		this.checkPoints();
 
 		// Update UI
 		this.el.css('transform', 'translateZ(0) translate(' + this.pos.x + 'em, ' + this.pos.y + 'em) rotate(' + delta + 'deg)');
 	};
-
 
 	Player.prototype.checkCollisionWithBounds = function() {
 		if (this.pos.y < 0 ||
@@ -70,6 +70,18 @@ window.Player = (function() {
 		}
 		else if(this.pos.x === this.game.pipe3.pos && this.pos.y < this.game.pipe3.topHeight) {
 			return this.game.gameover();
+		}
+	};
+
+	Player.prototype.checkPoints = function() {
+		if(this.pos.x === this.game.pipe1.pos) {
+			this.game.points++;
+		}
+		else if(this.pos.x === this.game.pipe2.pos) {
+			this.game.points++;
+		}
+		else if(this.pos.x === this.game.pipe3.pos) {
+			this.game.points++;
 		}
 	};
 

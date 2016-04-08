@@ -17,7 +17,7 @@ window.Game = (function() {
 	 */
 	var Game = function(el) {
 		this.el = el;
-
+		this.points = 0;
 		this.player = new window.Player(this.el.find('.Player'), this);
 		
 		this.pipe1 = new window.Pipes(this.el.find('.Pipe1'), pipePos, types.pipe1);
@@ -71,6 +71,7 @@ window.Game = (function() {
 	 * Resets the state of the game so a new game can be started.
 	 */
 	Game.prototype.reset = function() {
+		this.points = 0;
 		this.player.reset();
 		this.pipe1.reset();
 		this.pipe2.reset();
