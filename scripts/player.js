@@ -6,7 +6,7 @@ window.Player = (function() {
 	// All these constants are in em's, multiply by 10 pixels
 	// for 1024x576px canvas.
 	//var SPEED = 5; // * 10 pixels per second
-	var WIDTH = 5;
+	//var WIDTH = 5;
 	var HEIGHT = 5;
 	var INITIAL_POSITION_X = 30;
 	var INITIAL_POSITION_Y = 25;
@@ -43,7 +43,6 @@ window.Player = (function() {
 			this.kvak.play();
 			return;
 		}
-		this.game.updatePipes();
 		
 		this.checkCollisionWithBounds();
 
@@ -56,7 +55,6 @@ window.Player = (function() {
 		if (this.pos.y < 0 ||
 			this.pos.y > this.game.WORLD_HEIGHT - 16.5 ||
 			this.pos.y + HEIGHT > this.game.WORLD_HEIGHT) {
-			this.el.css('transform', 'translateZ(0) translate(' + this.pos.x + 'em, ' + this.pos.y + 'em) rotate(' + 20 + 'deg)');
 			$('.Player-wings').css('animation-play-state', 'paused');
 			$('.Land').css('animation-play-state', 'paused');
 			$('.Sky').css('animation-play-state', 'paused');
