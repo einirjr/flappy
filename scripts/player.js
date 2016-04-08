@@ -26,6 +26,10 @@ window.Player = (function() {
 	Player.prototype.reset = function() {
 		this.pos.x = INITIAL_POSITION_X;
 		this.pos.y = INITIAL_POSITION_Y;
+		$('.Player-wings').css('animation-play-state', 'running');
+		$('.Land').css('animation-play-state', 'running');
+		$('.Sky').css('animation-play-state', 'running');
+		$('.Cloud').css('animation-play-state', 'running');
 	};
 
 	Player.prototype.onFrame = function(delta) {
@@ -33,11 +37,13 @@ window.Player = (function() {
 		this.pos.y += GRAVITY;
 		var jumped = Controls.didJump();
 		if(jumped) {
-			this.kvak.play();
+			
 			this.pos.y -= 8 ;
 			this.el.css('transform', 'translateZ(0) translate(' + this.pos.x + 'em, ' + this.pos.y + 'em) rotate(' + this.rotation + 'deg)');
+			this.kvak.play();
 			return;
 		}
+		this.game.updatePipes();
 		
 		this.checkCollisionWithBounds();
 
@@ -47,14 +53,22 @@ window.Player = (function() {
 
 
 	Player.prototype.checkCollisionWithBounds = function() {
-		console.log(this.game.WORLD_HEIGHT);
 		if (this.pos.y < 0 ||
 			this.pos.y > this.game.WORLD_HEIGHT - 16.5 ||
 			this.pos.y + HEIGHT > this.game.WORLD_HEIGHT) {
+			this.el.css('transform', 'translateZ(0) translate(' + this.pos.x + 'em, ' + this.pos.y + 'em) rotate(' + 20 + 'deg)');
+			$('.Player-wings').css('animation-play-state', 'paused');
+			$('.Land').css('animation-play-state', 'paused');
+			$('.Sky').css('animation-play-state', 'paused');
+			$('.Cloud').css('animation-play-state', 'paused');
 			return this.game.gameover();
 		}
 	};
+/*
+	Player.prototype.dead() = function() {
 
+	}
+*/
 	return Player;
 
 })();
