@@ -132,41 +132,41 @@
     top: 0em;
     height: 16em;
     width: 10em;
-
-
-    border: solid white;
  
-    /*background-image: url(");*/
+    background-image: url('/images/tube1.png');
+    background-position: bottom;
+    background-size: 100% auto;
 }
 
 .Pipe1-Low {
     position: fixed;
     top: 34em;
-    height: 30em;
+    height: 12.1em;
     width: 10em;
 
-    border: solid white;
-    /*background-image: */
+    background-image: url('/images/tube2.png');
+    background-size: cover;
 }
 
 .Pipe2-high {
     position: fixed;
     top: 0em;
-    height: 26em;
+    height: 23em;
     width: 10em;
 
-    border: solid white;
-    /*background-image: url("");*/
+    background-image: url('/images/tube1.png');
+    background-position: bottom;
+    background-size: 100% auto;
 }
 
 .Pipe2-Low {
     position: fixed;
-    top: 44em;
-    height: 20em;
+    top: 41em;
+    height: 5.1em;
     width: 10em;
 
-    border: solid white;
-    /*background-image: url(");*/
+    background-image: url('/images/tube2.png');
+    background-size: cover;
 
 }
 
@@ -176,18 +176,19 @@
     height: 11em;
     width: 10em;
 
-    border: solid white;
-    /*background-image: url("");*/
+    background-image: url('/images/tube1.png');
+    background-position: bottom;
+    background-size: 100% auto;
 }
 
 .Pipe3-Low {
     position: fixed;
     top: 29em;
-    height: 35em;
+    height: 17.1em;
     width: 10em;
-    border: solid white;
 
-
+    background-image: url('/images/tube2.png');
+    background-size: cover;
 }
 
 .Scoreboard {

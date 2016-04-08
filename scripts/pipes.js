@@ -1,14 +1,17 @@
 window.Pipes = (function() {
     'use strict';
 
+    var FORSCORE = true;
     var INITIAL_POSITION_Y = 0;
-    var INITIAL_POSITION_Z = 0;
 
-    var Pipes = function(el, game, x) {
+    var Pipes = function(el, game, thisX) {
         
         this.el = el;
         this.game = game;
-        this.pos = { x: x, y: 0};
+        this.pos = { 
+            x: thisX, 
+            y: 0
+        };
     };
 
     /**
@@ -16,19 +19,23 @@ window.Pipes = (function() {
      */
     Pipes.prototype.reset = function() {
         this.pos.y = INITIAL_POSITION_Y;
-        this.pos.z = INITIAL_POSITION_Z;
     };
 
     Pipes.prototype.onFrame = function() {
-        if(this.pos.x < (-5)) {
-            this.pos.x = 100;
+        if(this.pos.x < (-10)) {
+            this.pos.x = 102.4;
         }
         else {
             this.pos.x -=  0.3;
         }
 
+        if(this.pos.x < 30 && FORSCORE) {
+            this.game.score += 1;
+            FORSCORE = false;
+        }
+
         // Update UI
-        this.el.css('transform', 'translateZ(0) translate(' + this.pos.x + 'em, ' + this.pos.y + 'em');
+        this.el.css('transform', 'translateZ(0) translate(' + this.pos.x + 'em, ' + this.pos.y + 'em)');
 
     };
 
