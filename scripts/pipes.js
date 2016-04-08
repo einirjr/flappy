@@ -18,7 +18,7 @@ window.Pipes = (function() {
      * Resets the state of the player for a new game.
      */
     Pipes.prototype.reset = function() {
-        this.pos.y = INITIAL_POSITION_Y;
+        //this.pos.y = INITIAL_POSITION_Y;
     };
 
     Pipes.prototype.onFrame = function() {

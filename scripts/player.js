@@ -40,7 +40,7 @@ window.Player = (function() {
 			
 			this.pos.y -= 8 ;
 			this.el.css('transform', 'translateZ(0) translate(' + this.pos.x + 'em, ' + this.pos.y + 'em) rotate(' + this.rotation + 'deg)');
-			this.kvak.play();
+			//this.kvak.play();
 			return;
 		}
 		
