@@ -62,25 +62,28 @@ window.Player = (function() {
 	};
 
 	Player.prototype.checkCollisionWithPipes = function() {
-		if(this.pos.x === this.game.pipe1.pos && this.pos.y < this.game.pipe1.topHeight) {
+		if(this.pos.x === this.game.pipe1.pos && (this.pos.y - this.game.pipe1.topHeight) <= 0) {
 			return this.game.gameover();
 		}
-		else if(this.pos.x === this.game.pipe2.pos && this.pos.y < this.game.pipe2.topHeight) {
+		else if(this.pos.x === this.game.pipe2.pos && (this.pos.y - this.game.pipe2.topHeight) <= 0) {
 			return this.game.gameover();
 		}
-		else if(this.pos.x === this.game.pipe3.pos && this.pos.y < this.game.pipe3.topHeight) {
+		else if(this.pos.x === this.game.pipe3.pos && (this.pos.y - this.game.pipe3.topHeight) <= 0) {
 			return this.game.gameover();
 		}
 	};
 
 	Player.prototype.checkPoints = function() {
 		if(this.pos.x === this.game.pipe1.pos) {
+			console.log('pipe1', this.pos.y - this.game.pipe1.topHeight );
 			this.game.points++;
 		}
 		else if(this.pos.x === this.game.pipe2.pos) {
+			console.log('pipe2', this.pos.y - this.game.pipe2.topHeight);
 			this.game.points++;
 		}
 		else if(this.pos.x === this.game.pipe3.pos) {
+			console.log('pipe3', this.pos.y - this.game.pipe3.topHeight);
 			this.game.points++;
 		}
 	};
