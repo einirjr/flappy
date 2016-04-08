@@ -9,6 +9,8 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
         <link rel="shortcut icon" href="/favicon.ico">
+        <audio class="theme allSounds" src="/audio/mariobros2.mp3" type="audio/mpeg" loop autoplay controls hidden></audio>
+
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
         <!-- build:css styles/vendor.css -->
         <!-- bower:css -->
@@ -55,6 +57,10 @@
                     <span class="Scoreboard-restartText">Restart</span>
                 </button>
             </div>
+        <div class="Audio">
+            <div class="sound"><img width="50px" onclick="window.Game.prototype.toggleMute()" src="/images/sound.png" alt="" /></div>
+            <div class="muted " hidden><img width="50px" onclick="window.Game.prototype.toggleMute()" src="/images/nosound.png" alt="" /></div>
+        </div>
         </div>
 
         <!-- build:js scripts/vendor.js -->

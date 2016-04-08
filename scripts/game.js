@@ -18,6 +18,7 @@ window.Game = (function() {
 	var Game = function(el) {
 		this.el = el;
 		this.points = 0;
+		this.dead = new Audio('/audio/gameover.mp3');
 		this.player = new window.Player(this.el.find('.Player'), this);
 		
 		this.pipe1 = new window.Pipes(this.el.find('.Pipe1'), pipePos, types.pipe1);
@@ -71,6 +72,11 @@ window.Game = (function() {
 	 * Resets the state of the game so a new game can be started.
 	 */
 	Game.prototype.reset = function() {
+		var theme = document.getElementsByClassName("theme");
+		theme[0].currentTime = 0;
+		if(!this.muted) {
+			theme[0].play();
+		}
 		this.points = 0;
 		this.player.reset();
 		this.pipe1.reset();
@@ -85,6 +91,11 @@ window.Game = (function() {
 		this.isPlaying = false;
 		this.hasStarted = false;
 		this.stopAnimation();
+		var theme = document.getElementsByClassName("theme");
+		theme[0].pause();
+		if(!this.muted) {
+			this.dead.play();
+		}
 		// Should be refactored into a Scoreboard class.
 		var that = this;
 		var scoreboardEl = this.el.find('.Scoreboard');
@@ -103,6 +114,25 @@ window.Game = (function() {
 		$('.Sky').css('animation-play-state', 'paused');
 		$('.Cloud').css('animation-play-state', 'paused');
 	};
+
+
+    Game.prototype.toggleMute = function() {
+        if (!this.muted) {
+            this.muted = true;
+            $('.muted').show();
+            $('.sound').hide();
+            var allSounds = document.getElementsByClassName('allSounds');
+            for (var i = 0 ; i < allSounds.length ; i++) {
+                allSounds[i].pause();
+            }
+        } else {
+            this.muted = false;
+            $('.muted').hide();
+            $('.sound').show();
+            var theme = document.getElementsByClassName('theme');
+            theme[0].play();
+        }
+    };
 
 	/**
 	 * Some shared constants.

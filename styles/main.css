@@ -251,3 +251,11 @@ margin-top: -28.8em;
 overflow: hidden;
 background: red;
 }
+
+.sound{
+  position: absolute;
+}
+
+.muted{
+  position: absolute;
+}
