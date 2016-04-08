@@ -45,6 +45,7 @@ window.Player = (function() {
 		}
 		
 		this.checkCollisionWithBounds();
+		this.checkCollisionWithPipes();
 
 		// Update UI
 		this.el.css('transform', 'translateZ(0) translate(' + this.pos.x + 'em, ' + this.pos.y + 'em) rotate(' + delta + 'deg)');
@@ -55,16 +56,12 @@ window.Player = (function() {
 		if (this.pos.y < 0 ||
 			this.pos.y > this.game.WORLD_HEIGHT - 16.5 ||
 			this.pos.y + HEIGHT > this.game.WORLD_HEIGHT) {
-			$('.Player-wings').css('animation-play-state', 'paused');
-			$('.Land').css('animation-play-state', 'paused');
-			$('.Sky').css('animation-play-state', 'paused');
-			$('.Cloud').css('animation-play-state', 'paused');
 			return this.game.gameover();
 		}
 	};
 /*
-	Player.prototype.dead() = function() {
-
+	Player.prototype.checkCollisionWithPipes = function() {
+		if(this.pos.y < )
 	}
 */
 	return Player;

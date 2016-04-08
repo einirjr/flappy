@@ -82,6 +82,7 @@
    background-color: #ded895;
    transform: translateZ(0);
    animation: animLand 2516ms linear infinite;
+   z-index: 1;
 }
 
 @keyframes animLand {
@@ -130,7 +131,7 @@
 .Pipe1-high {
     position: fixed;
     top: 0em;
-    height: 16em;
+    height: 20em;
     width: 10em;
  
     background-image: url('/images/tube1.png');
@@ -140,10 +141,10 @@
 
 .Pipe1-Low {
     position: fixed;
-    top: 34em;
-    height: 12.1em;
+    top: 35em;
+    height: 40em;
     width: 10em;
-
+    z-index: 2;
     background-image: url('/images/tube2.png');
     background-size: cover;
 }
@@ -161,10 +162,10 @@
 
 .Pipe2-Low {
     position: fixed;
-    top: 41em;
-    height: 5.1em;
+    top: 30em;
+    height: 40em;
     width: 10em;
-
+    z-index: 2;
     background-image: url('/images/tube2.png');
     background-size: cover;
 
@@ -175,7 +176,7 @@
     top: 0em;
     height: 11em;
     width: 10em;
-
+    z-index: 2;
     background-image: url('/images/tube1.png');
     background-position: bottom;
     background-size: 100% auto;
@@ -183,10 +184,10 @@
 
 .Pipe3-Low {
     position: fixed;
-    top: 29em;
-    height: 17.1em;
+    top: 30em;
+    height: 40em;
     width: 10em;
-
+    z-index: 2;
     background-image: url('/images/tube2.png');
     background-size: cover;
 }

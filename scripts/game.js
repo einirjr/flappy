@@ -2,8 +2,14 @@
 window.Game = (function() {
 	'use strict';
 
-	var pipeX = 100;
-	var pipeY = 0;
+	var pipePos = 100;
+
+	var types = {
+		pipe1: 0,
+		pipe2: 1,
+		pipe3: 2
+	};
+
 	/**
 	 * Main game class.
 	 * @param {Element} el jQuery element containing the game.
@@ -14,9 +20,9 @@ window.Game = (function() {
 
 		this.player = new window.Player(this.el.find('.Player'), this);
 		
-		this.pipe1 = new window.Pipes(this.el.find('.Pipe1'), pipeX, pipeY );
-		this.pipe2 = new window.Pipes(this.el.find('.Pipe2'), pipeX + 35, pipeY);
-		this.pipe3 = new window.Pipes(this.el.find('.Pipe3'), pipeX + 70, pipeY);
+		this.pipe1 = new window.Pipes(this.el.find('.Pipe1'), pipePos, types.pipe1);
+		this.pipe2 = new window.Pipes(this.el.find('.Pipe2'), pipePos + 35, types.pipe2);
+		this.pipe3 = new window.Pipes(this.el.find('.Pipe3'), pipePos + 70, types.pipe3);
 		
 		this.isPlaying = false;
 		// Cache a bound onFrame since we need it each frame.
@@ -77,6 +83,7 @@ window.Game = (function() {
 	Game.prototype.gameover = function() {
 		this.isPlaying = false;
 		this.hasStarted = false;
+		this.stopAnimation();
 		// Should be refactored into a Scoreboard class.
 		var that = this;
 		var scoreboardEl = this.el.find('.Scoreboard');
@@ -87,6 +94,13 @@ window.Game = (function() {
 					scoreboardEl.removeClass('is-visible');
 					that.start();
 				});
+	};
+
+	Game.prototype.stopAnimation = function() {
+		$('.Player-wings').css('animation-play-state', 'paused');
+		$('.Land').css('animation-play-state', 'paused');
+		$('.Sky').css('animation-play-state', 'paused');
+		$('.Cloud').css('animation-play-state', 'paused');
 	};
 
 	/**
