@@ -66,28 +66,28 @@ window.Player = (function() {
 	};
 
 	Player.prototype.checkCollisionWithPipes = function() {
-		if(this.pos.x === this.game.pipe1.pos-6 && (((this.pos.y - this.game.pipe1.topHeight) <= 0) || ((this.pos.y - this.game.pipe1.bottomHeight) >= 0))) {
+		if(this.pos.x === this.game.pipe1.pos - 6 && (this.pos.y - this.game.pipe1.topHeight <= 0 || (this.pos.y - this.game.pipe1.bottomHeight) > 0 ) ) {
 			return this.game.gameover();
 		}
-		else if(this.pos.x === this.game.pipe2.pos-6 && (this.pos.y - this.game.pipe2.topHeight) <= 0) {
+		else if(this.pos.x === this.game.pipe2.pos - 6 && (this.pos.y - this.game.pipe2.topHeight <= 0 || (this.pos.y - this.game.pipe2.bottomHeight) > 0 )) {
 			return this.game.gameover();
 		}
-		else if(this.pos.x === this.game.pipe3.pos-6 && (this.pos.y - this.game.pipe3.topHeight) <= 0) {
+		else if(this.pos.x === this.game.pipe3.pos - 6 && (this.pos.y - this.game.pipe3.topHeight <= 0 || (this.pos.y - this.game.pipe3.bottomHeight )  > 0 )) {
 			return this.game.gameover();
 		}
 	};
 
 	Player.prototype.checkPoints = function() {
 		if(this.pos.x === this.game.pipe1.pos) {
-			console.log('pipe1', this.pos.y - this.game.pipe1.topHeight );
+			console.log('pipe1', this.pos.y - this.game.pipe1.bottomHeight);
 			this.game.points++;
 		}
 		else if(this.pos.x === this.game.pipe2.pos) {
-			console.log('pipe2', this.pos.y - this.game.pipe2.topHeight);
+			console.log('pipe2', this.pos.y - this.game.pipe2.bottomHeight);
 			this.game.points++;
 		}
 		else if(this.pos.x === this.game.pipe3.pos) {
-			console.log('pipe3', this.pos.y - this.game.pipe3.topHeight);
+			console.log('pipe3', this.pos.y - this.game.pipe3.bottomHeight);
 			this.game.points++;
 		}
 	};
