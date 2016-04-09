@@ -9,6 +9,7 @@
     border-width: 0.1em;
 	background: blue;
 	transform: translateZ(0);
+	z-index: 0;
 }
 
 .Player-wings {
