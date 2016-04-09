@@ -63,7 +63,7 @@ window.Pipes = (function() {
             $('.Pipe2-high').css('height', this.topHeight + 'em');
             $('.Pipe2-low').css('top', this.bottomHeight + 'em');
         }
-        else if(this.type === types.pipe2) {
+        else if(this.type === types.pipe3) {
            // this.topHeight = 17;
            // this.bottomHeight = 30;
             $('.Pipe3-high').css('height', this.topHeight + 'em');

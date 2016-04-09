@@ -196,11 +196,12 @@
 	position: absolute;
 	left: 50%;
 	top: 10em;
+    border-radius: 10em 0em 10em 0em;
 	height: 30em;
 	width: 40em;
 	margin-left: -20em;
 	box-sizing: border-box;
-	background: purple;
+	background: black;
 	text-align: center;
 	-webkit-transform: translate(0, -40em);
 	-webkit-transition: -webkit-transform 0.5s;
@@ -214,7 +215,7 @@
 }
 
 .Scoreboard-restart {
-	margin-top: 20em;
+	margin-top: 15em;
 	font-size: inherit;
 	padding: 0.4em 1.5em;
 	border: 0.2em solid white;
@@ -258,4 +259,8 @@ background: red;
 
 .muted{
   position: absolute;
+}
+
+.Score-points{
+    color: white;
 }

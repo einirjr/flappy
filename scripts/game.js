@@ -72,7 +72,7 @@ window.Game = (function() {
 	 * Resets the state of the game so a new game can be started.
 	 */
 	Game.prototype.reset = function() {
-		var theme = document.getElementsByClassName("theme");
+		var theme = document.getElementsByClassName('theme');
 		theme[0].currentTime = 0;
 		if(!this.muted) {
 			theme[0].play();
@@ -91,11 +91,12 @@ window.Game = (function() {
 		this.isPlaying = false;
 		this.hasStarted = false;
 		this.stopAnimation();
-		var theme = document.getElementsByClassName("theme");
+		var theme = document.getElementsByClassName('theme');
 		theme[0].pause();
 		if(!this.muted) {
 			this.dead.play();
 		}
+		document.querySelector('.Score-points').innerHTML = 'You scored ' + this.points + ' points';
 		// Should be refactored into a Scoreboard class.
 		var that = this;
 		var scoreboardEl = this.el.find('.Scoreboard');
